@@ -1,0 +1,42 @@
+.container {
+  margin: 30px auto 60px;
+}
+
+.container .list {
+  width: 100%;
+  border-radius: 20px;
+  box-shadow: 0px 0px 18px 5px #304ffe3c;
+  margin: 30px auto 60px;
+  height: 600px;
+  overflow-y: scroll;
+  scrollbar-width: none;
+}
+
+.container .list .topSeperator {
+  width: 100%;
+  margin: 0px auto;
+  position: sticky;
+  top: 0;
+  right: 0;
+  background-color: #fff;
+  padding: 15px 0px;
+}
+
+.container .list .bottomSeperator {
+  width: 100%;
+  margin: 0px auto;
+  position: sticky;
+  bottom: 0;
+  right: 0;
+  background-color: #fff;
+  padding: 15px 0px;
+}
+
+.container .list ul {
+  width: 100%;
+  padding: 10px 20px;
+}
+
+.container .list::-webkit-scrollbar {
+  display: none;
+}

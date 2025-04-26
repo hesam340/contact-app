@@ -1,19 +1,15 @@
 import styles from "./Search.module.css";
 
 function Search({ search, setSearch }) {
-  const changeHandler = (e) => {
-    setSearch(e.target.value);
-    
-  };
-
   return (
     <div className={styles.search}>
-      <span>جستجو :</span>
+      <label htmlFor="search">جستجو :</label>
       <input
         type="text"
+        id="search"
         value={search}
         placeholder="جستجو در نام یا ایمیل"
-        onChange={changeHandler}
+        onChange={(e) => setSearch(e.target.value)}
       />
     </div>
   );

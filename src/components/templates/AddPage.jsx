@@ -25,6 +25,7 @@ function AddPage({ data }) {
     job: "",
     mobile: "",
   });
+  console.log(form)
   const [showModal, setShowModal] = useState(false);
   const [state, dispatch] = useForm();
   const navigate = useNavigate();

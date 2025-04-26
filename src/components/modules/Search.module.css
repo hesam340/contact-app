@@ -1,0 +1,28 @@
+.search {
+  display: flex;
+  align-items: center;
+  font-family: "yekan";
+  box-shadow: 0px 0px 18px 5px #304ffe3c;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.search label {
+  font-size: 1.2rem;
+  color: #414141;
+  margin-left: 10px;
+}
+
+.search input {
+  width: 250px;
+  padding: 5px 8px;
+  font-family: "yekan";
+  border: none;
+  border-radius: 10px;
+  background-color: #abd1fc75;
+  font-size: 1rem;
+}
+
+.search input:focus {
+  outline: none;
+}

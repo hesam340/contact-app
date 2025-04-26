@@ -10,6 +10,10 @@
   margin-bottom: 15px;
 }
 
+.user input {
+  cursor: pointer;
+}
+
 .user .title {
   font-size: 1.2rem;
   width: 230px;

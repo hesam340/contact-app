@@ -1,8 +1,8 @@
 import { Link, useNavigate } from "react-router-dom";
 import { RiDeleteBin6Line } from "react-icons/ri";
+import { useEffect, useState } from "react";
 import { FaRegEdit } from "react-icons/fa";
 import { toast } from "react-toastify";
-import { useState } from "react";
 
 import { useUser } from "context/userContext";
 import api from "configs/api";
@@ -10,10 +10,28 @@ import Modal from "./Modal";
 
 import styles from "./UsersList.module.css";
 
-function UsersList({ data: { name, email, id } }) {
+function UsersList({ data, checkBox, setDeleted }) {
+  const { name, email, id } = data;
   const [showModal, setShowModal] = useState(false);
+  const [checked, setChecked] = useState(false);
   const { setReload } = useUser();
   const navigate = useNavigate();
+
+  useEffect(() => {
+    setDeleted((item) => {
+      if (checked) {
+        return [...item, data];
+      } else {
+        return item.filter((user) => user.id !== id);
+      }
+    });
+  }, [checked]);
+
+  useEffect(() => {
+    if (!checkBox) {
+      setChecked(false);
+    }
+  }, [checkBox]);
 
   const confirmHandler = async () => {
     try {
@@ -29,6 +47,13 @@ function UsersList({ data: { name, email, id } }) {
 
   return (
     <li className={styles.user}>
+      {checkBox && (
+        <input
+          type="checkbox"
+          checked={checked}
+          onChange={() => setChecked((checked) => !checked)}
+        />
+      )}
       <p className={styles.title}>
         <Link to={`/details/${id}`}>{name}</Link>
       </p>

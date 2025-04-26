@@ -1,4 +1,5 @@
 import { createContext, useContext, useReducer } from "react";
+import generateId from "utils/generateId";
 
 const initialState = {
   form: [],
@@ -20,7 +21,7 @@ const reducer = (state, action) => {
       };
     }
     case "ADD_SUCCESS": {
-      state.form.push({ ...action.payload });
+      state.form.push({ ...action.payload, userId: generateId() });
       return {
         ...state,
         loading: false,

@@ -1,0 +1,69 @@
+.mainButtons {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: "yekan";
+  box-shadow: 0px 0px 18px 5px #304ffe3c;
+  padding: 10px;
+  border-radius: 10px;
+  width: 400px;
+}
+
+.mainButtons a {
+  display: flex;
+  align-items: center;
+  font-size: 1.1rem;
+  background-color: #304ffe;
+  padding: 5px;
+  border-radius: 10px;
+  color: #fff;
+  transition: all 0.2s ease-in;
+}
+
+.mainButtons a:hover {
+  background-color: #2183eb;
+}
+
+.mainButtons a svg {
+  margin-right: 5px;
+  font-size: 1.5rem;
+}
+
+.mainButtons button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border: none;
+  border-radius: 10px;
+  background-color: red;
+  color: #fff;
+  font-family: "Yekan";
+  padding: 5px;
+  font-size: 1.1rem;
+  width: 80px;
+  text-align: center;
+  transition: all 0.2s ease-in;
+}
+
+.mainButtons button svg {
+  margin-right: 5px;
+  font-size: 1.5rem;
+}
+
+.mainButtons button:hover {
+  background-color: #ff0000e4;
+}
+
+.mainButtons .groupDelete {
+  width: 125px;
+}
+
+.mainButtons .cancel {
+  background-color: #ecd13c;
+  transition: all 0.2s ease-in;
+}
+
+.mainButtons .cancel:hover {
+  background-color: #ecd13cda;
+}

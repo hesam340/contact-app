@@ -1,6 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 
+import DetailsPage from "components/templates/DetailsPage";
 import PageNotFound from "components/templates/404Page";
 import EditPage from "components/templates/EditPage";
 import HomePage from "components/templates/HomePage";
@@ -18,6 +19,7 @@ function App() {
             <Route index element={<HomePage />} />
             <Route path="/add" element={<AddPage />} />
             <Route path="/edit/:id" element={<EditPage />} />
+            <Route path="/details/:id" element={<DetailsPage />} />
             <Route path="/*" element={<PageNotFound />} />
           </Routes>
         </Layout>

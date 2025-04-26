@@ -32,7 +32,7 @@ function UserProvider({ children }) {
 }
 
 const useUser = () => {
-  const { users, setReload } = useContext(UserContext);
+  const { users, setReload} = useContext(UserContext);
   return { users, setReload };
 };
 

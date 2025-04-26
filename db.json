@@ -1,20 +1,6 @@
 {
   "users": [
     {
-      "id": "3444",
-      "name": "حسام خاکی",
-      "email": "hesam@gmail.com",
-      "job": "job",
-      "mobile": "09127470989"
-    },
-    {
-      "id": "667b",
-      "name": "حسام خاکی",
-      "email": "hesam@gmail.com",
-      "job": "job",
-      "mobile": "09127470989"
-    },
-    {
       "id": "476a",
       "name": "test for updating data",
       "email": "hesamtest@gmail.com",
@@ -29,53 +15,11 @@
       "mobile": "09127470989"
     },
     {
-      "id": "3526",
-      "name": "",
-      "email": "",
-      "job": "",
-      "mobile": ""
-    },
-    {
-      "id": "938b",
-      "name": "",
-      "email": "",
-      "job": "",
-      "mobile": ""
-    },
-    {
-      "id": "997f",
-      "name": "",
-      "email": "",
-      "job": "",
-      "mobile": ""
-    },
-    {
-      "id": "64fe",
-      "name": "",
-      "email": "",
-      "job": "",
-      "mobile": ""
-    },
-    {
-      "id": "1f76",
-      "name": "حمید خاکی",
-      "email": "hamid@gmail.com",
-      "job": "فروشنده",
-      "mobile": "09123515916"
-    },
-    {
       "id": "e2ab",
       "name": "علی یزدی",
       "email": "yazdiAliii@gmail.com",
       "job": "تعمیرات موبایل",
       "mobile": "09104221025"
-    },
-    {
-      "id": "6801",
-      "name": "test test",
-      "email": "test@gmail.com",
-      "job": "test",
-      "mobile": "09121111111"
     },
     {
       "id": "2cde",
@@ -132,20 +76,6 @@
       "email": "moha@gmail.com",
       "job": "متصدی داروخانه",
       "mobile": "09123514797"
-    },
-    {
-      "id": "39b2",
-      "name": "test test",
-      "email": "test@gmail.com",
-      "job": "test",
-      "mobile": "09121111111"
-    },
-    {
-      "id": "47aa",
-      "name": "testtest",
-      "email": "test@gmail.com",
-      "job": "test",
-      "mobile": "09121111111"
     },
     {
       "id": "c583",
@@ -258,6 +188,48 @@
       "email": "soha@gmail.com",
       "job": "مهندس نرم افزار",
       "mobile": "09143657489"
+    },
+    {
+      "id": "a8f0",
+      "name": "تست چک باکس",
+      "email": "testcheckbox@gmail.com",
+      "job": "test",
+      "mobile": "09101111111"
+    },
+    {
+      "id": "dbef",
+      "name": "خدمت سربازی",
+      "email": "khedmat@gmail.com",
+      "job": "خدمت",
+      "mobile": "09101111111"
+    },
+    {
+      "id": "f5cb",
+      "name": "مسلم جدیدی",
+      "email": "moslem@gmail.com",
+      "job": "پاسدار",
+      "mobile": "09101111111"
+    },
+    {
+      "id": "acac",
+      "name": "هادی فرهادی",
+      "email": "hadi@gmail.com",
+      "job": "کشاورز",
+      "mobile": "09101111111"
+    },
+    {
+      "id": "87d6",
+      "name": "testtest",
+      "email": "test@gmail.com",
+      "job": "test",
+      "mobile": "09101111111"
+    },
+    {
+      "id": "ce05",
+      "name": "testtesttest",
+      "email": "test@gmail.com",
+      "job": "09101111111",
+      "mobile": "09101111111"
     }
   ]
 }

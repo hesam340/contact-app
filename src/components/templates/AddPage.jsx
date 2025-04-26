@@ -25,7 +25,7 @@ function AddPage({ data }) {
     job: "",
     mobile: "",
   });
-  console.log(form)
+  
   const [showModal, setShowModal] = useState(false);
   const [state, dispatch] = useForm();
   const navigate = useNavigate();
@@ -65,14 +65,13 @@ function AddPage({ data }) {
 
   const confirmHandler = async (e) => {
     e.preventDefault();
-    dispatch({ type: "ADD_REQUEST" });
     try {
       if (data) {
         await api.put(`/users/${data.id}`, form);
       } else {
         await api.post("/users", form);
       }
-      dispatch({ type: "ADD_SUCCESS", payload: form });
+      dispatch({ type: "ADD_USER", payload: form });
       toast.success(
         data ? "اطلاعات مخاطب مورد نظر ویرایش شد" : "مخاطب مورد نظر اضافه شد"
       );
@@ -85,7 +84,6 @@ function AddPage({ data }) {
       if (data) navigate("/");
       setShowModal(false);
     } catch (error) {
-      dispatch({ type: "ADD_ERROR" });
       toast.error("مشکلی پیش آمده است ، لطفا دوباره تلاش کنید");
       setShowModal(false);
     }

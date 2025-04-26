@@ -21,19 +21,19 @@ const mobileValidation = (mobile) => {
   return null;
 };
 
-const formValidation = (state) => {
+const formValidation = (form) => {
   const errors = {};
 
-  const nameError = nameValidation(state.name);
+  const nameError = nameValidation(form.name);
   if (nameError) errors.name = nameError.error;
 
-  const emailError = emailValidation(state.email);
+  const emailError = emailValidation(form.email);
   if (emailError) errors.email = emailError.error;
 
-  const mobileError = mobileValidation(state.mobile);
+  const mobileError = mobileValidation(form.mobile);
   if (mobileError) errors.mobile = mobileError.error;
 
-  if (!state.job) errors.job = "لطفا شغل را وارد کنید";
+  if (!form.job) errors.job = "لطفا شغل را وارد کنید";
 
   return {
     errors,

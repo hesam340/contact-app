@@ -1,37 +1,20 @@
 import { createContext, useContext, useReducer } from "react";
-import generateId from "utils/generateId";
 
 const initialState = {
-  form: [],
   errors: {
     name: "",
     email: "",
     job: "",
     mobile: "",
-  },
-  loading: false,
+  }
 };
 
 const reducer = (state, action) => {
   switch (action.type) {
-    case "ADD_REQUEST": {
+    case "ADD_USER": {
       return {
         ...state,
-        loading: true,
-      };
-    }
-    case "ADD_SUCCESS": {
-      state.form.push({ ...action.payload, userId: generateId() });
-      return {
-        ...state,
-        loading: false,
         errors: initialState.errors,
-      };
-    }
-    case "ADD_ERROR": {
-      return {
-        ...state,
-        loading: false,
       };
     }
     case "INPUT_ERROR":
@@ -50,7 +33,11 @@ const reducer = (state, action) => {
 const FormContext = createContext();
 
 function FormProvider({ children }) {
-  const [state, dispatch] = useReducer(reducer, initialState);
+  
+  const [state, dispatch] = useReducer(
+    reducer,
+    initialState,
+  );
 
   return (
     <FormContext.Provider value={{ state, dispatch }}>

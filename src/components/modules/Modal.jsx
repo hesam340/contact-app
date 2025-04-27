@@ -6,9 +6,7 @@ function Modal({ type, action, setShowModal, confirmHandler }) {
       <div className={styles.modal}>
         <p>شما در حال {type} می‌باشید ، آیا از این عملیات مطمئن هستید ؟ ‌</p>
         <div className={styles.buttons}>
-          <button onClick={confirmHandler}>
-            {action}
-          </button>
+          <button onClick={confirmHandler}>{action}</button>
           <button onClick={() => setShowModal(false)}>انصراف</button>
         </div>
       </div>

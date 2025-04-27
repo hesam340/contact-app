@@ -1,0 +1,42 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0px auto;
+}
+
+.container img {
+  width: 600px;
+  height: 400px;
+}
+
+.container div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: "Yekan";
+}
+
+.container p {
+  width: 400px;
+  text-align: center;
+  color: #2183eb;
+  font-size: 1.5rem;
+}
+
+.container a {
+  margin-top: 20px;
+  border-radius: 15px;
+  background-color: #2183eb;
+  color: #fff;
+  padding: 7px 10px;
+  font-size: 1.2rem;
+  transition: all 0.2s ease-in;
+  border: 1px solid #2183eb;
+}
+
+.container a:hover {
+  background-color: #fff;
+  color: #2183eb;
+  border: 1px solid #2183eb;
+}

@@ -6,17 +6,11 @@ const initialState = {
     email: "",
     job: "",
     mobile: "",
-  }
+  },
 };
 
 const reducer = (state, action) => {
   switch (action.type) {
-    case "ADD_USER": {
-      return {
-        ...state,
-        errors: initialState.errors,
-      };
-    }
     case "INPUT_ERROR":
       return {
         ...state,
@@ -33,11 +27,7 @@ const reducer = (state, action) => {
 const FormContext = createContext();
 
 function FormProvider({ children }) {
-  
-  const [state, dispatch] = useReducer(
-    reducer,
-    initialState,
-  );
+  const [state, dispatch] = useReducer(reducer, initialState);
 
   return (
     <FormContext.Provider value={{ state, dispatch }}>

@@ -42,10 +42,12 @@
   font-family: "Yekan";
   border-radius: 10px;
   transition: all 0.2s ease-in;
+  border: 1px solid #24cc32;
 }
 
 .actions button:last-child {
   background-color: red;
+  border: 1px solid red;
 }
 
 .actions button svg {
@@ -53,9 +55,11 @@
 }
 
 .actions button:first-child:hover {
-  background-color: #24cc32d1;
+  background-color: #fff;
+  color: #24cc32;
 }
 
 .actions button:last-child:hover {
-  background-color: #ff0000e4;
+  background-color: #fff;
+  color: red;
 }

@@ -1,58 +1,57 @@
 .container {
-    color: #101010;
-    font-size: 1.15rem;
-    width: 80%;
+  color: #101010;
+  font-size: 1.15rem;
+  width: 80%;
 }
 
 .container .label {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .container .label svg {
-    margin-left: 8px;
+  margin-left: 8px;
 }
 
 .container .input {
-    margin-bottom: 15px;
-    display: flex;
-    flex-direction: column;
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
 }
 
 .container input {
-    padding: 8px 10px;
-    border-radius: 10px;
-    margin-top: 5px;
-    border: 1px solid #304ffe;
-    font-size: 1rem;
-    font-family: "Yekan";
-    color: #304ffe;
-    font-weight: bold;
+  padding: 8px 10px;
+  border-radius: 10px;
+  margin-top: 5px;
+  border: 1px solid #304ffe;
+  font-size: 1rem;
+  font-family: "Yekan";
+  color: #304ffe;
+  font-weight: bold;
 }
 
 .container input:focus {
-    outline: none;
-    box-shadow: 0px 0px 10px 5px #304ffe3c;
+  outline: none;
+  box-shadow: 0px 0px 10px 5px #304ffe3c;
 }
 
 .container span {
-    height: 30px;
-    margin-top: 5px;
-    color: red;
-    font-size: 1rem;
+  height: 30px;
+  margin-top: 5px;
+  color: red;
+  font-size: 1rem;
 }
 
 .container .error {
-    border: 1px solid red;
-    box-shadow: 0px 0px 10px 5px #ff00002e;
+  border: 1px solid red;
+  box-shadow: 0px 0px 10px 5px #ff00002e;
 }
 
 .container .error:focus {
-    border: 1px solid red;
-    box-shadow: 0px 0px 10px 5px #ff00002e;
-
+  border: 1px solid red;
+  box-shadow: 0px 0px 10px 5px #ff00002e;
 }
 
 .container .ltr {
-    direction: ltr;
+  direction: ltr;
 }

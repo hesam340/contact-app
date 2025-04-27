@@ -27,10 +27,12 @@
   border: none;
   cursor: pointer;
   transition: all 0.2s ease-in;
+  border: 1px solid #304ffe;
 }
 
 .container button:hover {
-  background-color: #2183eb;
+  background-color: #fff;
+  color: #304ffe;
 }
 
 .container a {
@@ -47,6 +49,7 @@
   border-radius: 10px;
   color: #fff;
   transition: all 0.2s ease-in;
+  border: 1px solid red;
 }
 
 .container a svg {
@@ -54,5 +57,6 @@
 }
 
 .container a:hover {
-  background-color: #ff0000e4;
+  background-color: #fff;
+  color: red;
 }

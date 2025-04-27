@@ -9,6 +9,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  z-index: 10;
 }
 
 .container .modal {
@@ -42,16 +43,20 @@
   font-family: "Yekan";
   border-radius: 10px;
   transition: all 0.2s ease-in;
+  border: 1px solid #304ffe;
 }
 
 .modal .buttons button:first-child:hover {
-  background-color: #2183eb;
+  background-color: #fff;
+  color: #304ffe;
 }
 
 .modal .buttons button:last-child {
   background-color: red;
+  border: 1px solid red;
 }
 
 .modal .buttons button:last-child:hover {
-  background-color: #ff0000e4;
+  background-color: #fff;
+  color: red;
 }

@@ -5,7 +5,7 @@ import AddPage from "./AddPage";
 
 function EditPage() {
   const { id } = useParams();
-  const {users} = useUser();
+  const { users } = useUser();
 
   const user = users.find((user) => user.id === id);
 

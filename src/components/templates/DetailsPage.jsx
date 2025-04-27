@@ -2,12 +2,12 @@ import { MdOutlineMobileFriendly } from "react-icons/md";
 import { MdOutlineMarkEmailRead } from "react-icons/md";
 import { LuBriefcaseBusiness } from "react-icons/lu";
 import { Link, useParams } from "react-router-dom";
+import { IoMdArrowRoundBack } from "react-icons/io";
 import { FiUser } from "react-icons/fi";
 
 import { useUser } from "context/UserContext";
 
 import styles from "./DetailsPage.module.css";
-import { IoMdArrowRoundBack } from "react-icons/io";
 
 function DetailsPage() {
   const { id } = useParams();

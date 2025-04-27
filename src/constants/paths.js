@@ -5,8 +5,7 @@ export const paths = [
   "layout",
   "modules",
   "templates",
-  "configs",
   "constants",
   "context",
-  "utils"
+  "utils",
 ];

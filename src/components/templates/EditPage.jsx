@@ -1,13 +1,14 @@
 import { useParams } from "react-router-dom";
 
-import { useUser } from "context/UserContext";
+import { useForm } from "context/FormContext";
 import AddPage from "./AddPage";
 
 function EditPage() {
   const { id } = useParams();
-  const {users} = useUser();
+  const [state] = useForm();
 
-  const user = users.find((user) => user.id === id);
+  const user = state.users.find((user) => user.userId === +id);
+  console.log(user);
 
   return <AddPage data={user} />;
 }

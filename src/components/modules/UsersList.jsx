@@ -4,17 +4,14 @@ import { useEffect, useState } from "react";
 import { FaRegEdit } from "react-icons/fa";
 import { toast } from "react-toastify";
 
-import { useUser } from "context/userContext";
-import api from "configs/api";
 import Modal from "./Modal";
 
 import styles from "./UsersList.module.css";
 
-function UsersList({ data, checkBox, setDeleted }) {
-  const { name, email, id } = data;
+function UsersList({ data, checkBox, setDeleted, dispatch }) {
+  const { name, email, userId } = data;
   const [showModal, setShowModal] = useState(false);
   const [checked, setChecked] = useState(false);
-  const { setReload } = useUser();
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -22,7 +19,7 @@ function UsersList({ data, checkBox, setDeleted }) {
       if (checked) {
         return [...item, data];
       } else {
-        return item.filter((user) => user.id !== id);
+        return item.filter((user) => user.userId !== userId);
       }
     });
   }, [checked]);
@@ -33,11 +30,10 @@ function UsersList({ data, checkBox, setDeleted }) {
     }
   }, [checkBox]);
 
-  const confirmHandler = async () => {
+  const confirmHandler = () => {
     try {
-      await api.delete(`/users/${id}`);
+      dispatch({ type: "DELETE_ONE_USER", payload: data });
       toast.success("مخاطب مورد نظر حذف گردید");
-      setReload((reload) => !reload);
       setShowModal(false);
     } catch (error) {
       toast.error("مشکلی پیش آمده است ، لطفا دوباره تلاش کنید");
@@ -55,13 +51,13 @@ function UsersList({ data, checkBox, setDeleted }) {
         />
       )}
       <p className={styles.title}>
-        <Link to={`/details/${id}`}>{name}</Link>
+        <Link to={`/details/${userId}`}>{name}</Link>
       </p>
       <span>
-        <Link to={`/details/${id}`}>{email}</Link>
+        <Link to={`/details/${userId}`}>{email}</Link>
       </span>
       <div className={styles.actions}>
-        <button onClick={() => navigate(`/edit/${id}`)}>
+        <button onClick={() => navigate(`/edit/${userId}`)}>
           ویرایش
           <FaRegEdit />
         </button>

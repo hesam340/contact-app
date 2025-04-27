@@ -1,11 +1,11 @@
 import { MdOutlineMobileFriendly } from "react-icons/md";
 import { MdOutlineMarkEmailRead } from "react-icons/md";
 import { LuBriefcaseBusiness } from "react-icons/lu";
-import { IoMdArrowRoundBack } from "react-icons/io";
-import { FiUser } from "react-icons/fi";
 import { Link, useNavigate } from "react-router-dom";
-import { toast } from "react-toastify";
+import { IoMdArrowRoundBack } from "react-icons/io";
 import { useEffect, useState } from "react";
+import { FiUser } from "react-icons/fi";
+import { toast } from "react-toastify";
 
 import { mobileValidation } from "utils/formValidate";
 import { emailValidation } from "utils/formValidate";
@@ -14,7 +14,6 @@ import { formValidation } from "utils/formValidate";
 import { useForm } from "context/FormContext";
 import Input from "components/modules/Input";
 import Modal from "components/modules/Modal";
-import api from "configs/api";
 
 import styles from "./AddPage.module.css";
 
@@ -25,7 +24,7 @@ function AddPage({ data }) {
     job: "",
     mobile: "",
   });
-  
+
   const [showModal, setShowModal] = useState(false);
   const [state, dispatch] = useForm();
   const navigate = useNavigate();
@@ -63,15 +62,14 @@ function AddPage({ data }) {
     });
   };
 
-  const confirmHandler = async (e) => {
+  const confirmHandler = (e) => {
     e.preventDefault();
     try {
       if (data) {
-        await api.put(`/users/${data.id}`, form);
+        dispatch({ type: "EDIT_USER", payload: form });
       } else {
-        await api.post("/users", form);
+        dispatch({ type: "ADD_USER", payload: form });
       }
-      dispatch({ type: "ADD_USER", payload: form });
       toast.success(
         data ? "اطلاعات مخاطب مورد نظر ویرایش شد" : "مخاطب مورد نظر اضافه شد"
       );

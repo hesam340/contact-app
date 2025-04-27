@@ -1,19 +1,19 @@
 import { MdOutlineMobileFriendly } from "react-icons/md";
 import { MdOutlineMarkEmailRead } from "react-icons/md";
 import { LuBriefcaseBusiness } from "react-icons/lu";
+import { IoMdArrowRoundBack } from "react-icons/io";
 import { Link, useParams } from "react-router-dom";
 import { FiUser } from "react-icons/fi";
 
-import { useUser } from "context/UserContext";
+import { useForm } from "context/FormContext";
 
 import styles from "./DetailsPage.module.css";
-import { IoMdArrowRoundBack } from "react-icons/io";
 
 function DetailsPage() {
   const { id } = useParams();
 
-  const { users } = useUser();
-  const detail = users.find((item) => item.id === id);
+  const [state] = useForm();
+  const detail = state.users.find((item) => item.userId === +id);
 
   return (
     <div className={styles.container}>

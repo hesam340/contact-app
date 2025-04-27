@@ -4,42 +4,34 @@ import { toast } from "react-toastify";
 import MainActions from "components/modules/MainActions";
 import UsersList from "components/modules/usersList";
 import Search from "components/modules/Search";
-import { useUser } from "context/UserContext";
+import { useForm } from "context/FormContext";
 import Modal from "components/modules/Modal";
 import searchUsers from "utils/searchUsers";
-import api from "configs/api";
 
 import styles from "./HomePage.module.css";
-import Loader from "components/modules/Loader";
 
 function HomePage() {
-  const { users } = useUser();
+  const [state, dispatch] = useForm();
 
   const [checkBox, setCheckBox] = useState(false);
   const [displayed, setDisplayed] = useState([]);
   const [modal, setShowModal] = useState(false);
-  const [loading, setLoading] = useState(true);
   const [deleted, setDeleted] = useState([]);
   const [search, setSearch] = useState("");
 
   useEffect(() => {
-    setDisplayed(users);
-    setLoading(false);
-  }, [users]);
+    setDisplayed(state.users);
+  }, [state]);
 
   useEffect(() => {
-    setDisplayed(searchUsers(search, users));
+    setDisplayed(searchUsers(search, state.users));
   }, [search]);
 
-  const confirmHandler = async () => {
+  const confirmHandler = () => {
     try {
-      await Promise.all(deleted.map((item) => api.delete(`/users/${item.id}`)));
+      dispatch({ type: "DELETE_GROUP_USERS", payload: deleted });
 
-      const remainedUsers = displayed.filter(
-        (item) => !deleted.some((i) => i.id === item.id)
-      );
-
-      setDisplayed(remainedUsers);
+      setDisplayed(state.users);
       setDeleted([]);
       setShowModal(false);
       setCheckBox(false);
@@ -49,8 +41,6 @@ function HomePage() {
       toast.error("مشکلی پیش آمده است ، لطفا دوباره تلاش کنید");
     }
   };
-
-  if (loading) return <Loader />;
 
   return (
     <div className={styles.container}>
@@ -70,10 +60,11 @@ function HomePage() {
           <ul>
             {displayed.map((user) => (
               <UsersList
-                key={user.id}
+                key={user.userId}
                 data={user}
                 checkBox={checkBox}
                 setDeleted={setDeleted}
+                dispatch={dispatch}
               />
             ))}
           </ul>

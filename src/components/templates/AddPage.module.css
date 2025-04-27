@@ -47,6 +47,7 @@
   border-radius: 10px;
   color: #fff;
   transition: all 0.2s ease-in;
+  border: 1px solid red;
 }
 
 .container a svg {
@@ -54,5 +55,6 @@
 }
 
 .container a:hover {
-  background-color: #ff0000e4;
+  background-color: #fff;
+  color: red;
 }

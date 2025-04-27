@@ -18,10 +18,12 @@
   border-radius: 10px;
   color: #fff;
   transition: all 0.2s ease-in;
+  border: 1px solid #304ffe;
 }
 
 .mainButtons a:hover {
-  background-color: #2183eb;
+  background-color: #fff;
+  color: #304ffe;
 }
 
 .mainButtons a svg {
@@ -44,6 +46,7 @@
   width: 90px;
   text-align: center;
   transition: all 0.2s ease-in;
+  border: 1px solid red;
 }
 
 .mainButtons button svg {
@@ -52,7 +55,8 @@
 }
 
 .mainButtons button:hover {
-  background-color: #ff0000e4;
+  background-color: #fff;
+  color: red;
 }
 
 .mainButtons .groupDelete {
@@ -62,8 +66,10 @@
 .mainButtons .cancel {
   background-color: #ecd13c;
   transition: all 0.2s ease-in;
+  border: 1px solid #ecd13c;
 }
 
 .mainButtons .cancel:hover {
-  background-color: #ecd13cda;
+  background-color: #fff;
+  color: #ecd13c;
 }

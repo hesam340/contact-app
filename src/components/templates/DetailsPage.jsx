@@ -5,14 +5,14 @@ import { IoMdArrowRoundBack } from "react-icons/io";
 import { Link, useParams } from "react-router-dom";
 import { FiUser } from "react-icons/fi";
 
-import { useForm } from "context/FormContext";
+import { useUser } from "context/FormContext";
 
 import styles from "./DetailsPage.module.css";
 
 function DetailsPage() {
   const { id } = useParams();
 
-  const [state] = useForm();
+  const [state] = useUser();
   const detail = state.users.find((item) => item.userId === +id);
 
   return (
@@ -23,7 +23,7 @@ function DetailsPage() {
             <FiUser />
             نام و نام خانوادگی :
           </p>
-          <span>{detail?.name}</span>
+          <span>{detail?.fullName}</span>
         </div>
         <div>
           <p>

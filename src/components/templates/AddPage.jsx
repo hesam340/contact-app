@@ -1,85 +1,61 @@
 import { MdOutlineMobileFriendly } from "react-icons/md";
 import { MdOutlineMarkEmailRead } from "react-icons/md";
+import { yupResolver } from "@hookform/resolvers/yup";
 import { LuBriefcaseBusiness } from "react-icons/lu";
 import { Link, useNavigate } from "react-router-dom";
 import { IoMdArrowRoundBack } from "react-icons/io";
 import { useEffect, useState } from "react";
+import { useForm } from "react-hook-form";
 import { FiUser } from "react-icons/fi";
 import { toast } from "react-toastify";
 
-import { mobileValidation } from "utils/formValidate";
-import { emailValidation } from "utils/formValidate";
-import { nameValidation } from "utils/formValidate";
-import { formValidation } from "utils/formValidate";
-import { useForm } from "context/FormContext";
+import { userSchema } from "validation/userSchema";
+import { useUser } from "context/FormContext";
 import Input from "components/modules/Input";
 import Modal from "components/modules/Modal";
 
 import styles from "./AddPage.module.css";
 
-function AddPage({ data }) {
-  const [form, setForm] = useState({
-    name: "",
-    email: "",
-    job: "",
-    mobile: "",
+function AddPage({ editedData }) {
+  const [form, setForm] = useState({});
+
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm({
+    resolver: yupResolver(userSchema),
+    mode: "onTouched",
   });
 
   const [showModal, setShowModal] = useState(false);
-  const [state, dispatch] = useForm();
+  const [state, dispatch] = useUser();
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (data) setForm(data);
-  }, [data]);
+    if (editedData) reset(editedData);
+  }, [editedData]);
 
-  const changeHandler = (e) => {
-    const { value, name } = e.target;
-    const trimmedValue = value.trimStart();
-    setForm({ ...form, [name]: trimmedValue });
-
-    let error = null;
-    switch (name) {
-      case "name":
-        error = nameValidation(trimmedValue);
-        break;
-      case "email":
-        error = emailValidation(trimmedValue);
-        break;
-      case "job":
-        error = !trimmedValue && { error: "لطفا شغل را وارد کنید" };
-        break;
-      case "mobile":
-        error = mobileValidation(trimmedValue);
-        break;
-      default:
-        break;
-    }
-
-    dispatch({
-      type: "INPUT_ERROR",
-      payload: { name, error: error ? error.error : "" },
-    });
-  };
-
-  const confirmHandler = (e) => {
-    e.preventDefault();
+  const confirmHandler = () => {
     try {
-      if (data) {
+      if (editedData) {
         dispatch({ type: "EDIT_USER", payload: form });
       } else {
         dispatch({ type: "ADD_USER", payload: form });
       }
       toast.success(
-        data ? "اطلاعات مخاطب مورد نظر ویرایش شد" : "مخاطب مورد نظر اضافه شد"
+        editedData
+          ? "اطلاعات مخاطب مورد نظر ویرایش شد"
+          : "مخاطب مورد نظر اضافه شد"
       );
-      setForm({
-        name: "",
+      reset({
+        fullName: "",
         email: "",
         job: "",
         mobile: "",
       });
-      if (data) navigate("/");
+      if (editedData) navigate("/");
       setShowModal(false);
     } catch (error) {
       toast.error("مشکلی پیش آمده است ، لطفا دوباره تلاش کنید");
@@ -87,35 +63,21 @@ function AddPage({ data }) {
     }
   };
 
-  const addHandler = (e) => {
-    e.preventDefault();
-    const { errors } = formValidation(form);
-
-    let isError = false;
-    for (let key in errors) {
-      dispatch({
-        type: "INPUT_ERROR",
-        payload: { name: key, error: errors[key] },
-      });
-      isError = true;
-    }
-    if (isError) return;
-
+  const addHandler = (data) => {
+    setForm(data);
     setShowModal(true);
   };
 
   return (
     <form className={styles.container}>
-      {data ? <h1>فرم ویرایش کاربر</h1> : <h1>فرم افزودن کاربر</h1>}
+      {editedData ? <h1>فرم ویرایش کاربر</h1> : <h1>فرم افزودن کاربر</h1>}
       <Input
         title="نام و نام خانوادگی :"
         placeholder="مثال : حسام خاکی"
-        name="name"
-        value={form.name}
-        changeHandler={changeHandler}
+        name="fullName"
+        register={register}
         direction={false}
-        error={!!state.errors.name}
-        errorText={state.errors.name}
+        errors={errors}
       >
         <FiUser />
       </Input>
@@ -123,11 +85,9 @@ function AddPage({ data }) {
         title="ایمیل :"
         placeholder="example : bootcamp@gmail.com"
         name="email"
-        value={form.email}
-        changeHandler={changeHandler}
+        register={register}
         direction={true}
-        error={!!state.errors.email}
-        errorText={state.errors.email}
+        errors={errors}
       >
         <MdOutlineMarkEmailRead />
       </Input>
@@ -135,11 +95,9 @@ function AddPage({ data }) {
         title="شغل :"
         placeholder="مثال : فرانت اند دولوپر"
         name="job"
-        value={form.job}
-        changeHandler={changeHandler}
+        register={register}
         direction={false}
-        error={!!state.errors.job}
-        errorText={state.errors.job}
+        errors={errors}
       >
         <LuBriefcaseBusiness />
       </Input>
@@ -147,18 +105,16 @@ function AddPage({ data }) {
         title="شماره همراه :"
         placeholder="example : 09105667406"
         name="mobile"
-        value={form.mobile}
-        changeHandler={changeHandler}
+        register={register}
         direction={true}
-        error={!!state.errors.mobile}
-        errorText={state.errors.mobile}
+        errors={errors}
       >
         <MdOutlineMobileFriendly />
       </Input>
-      {data ? (
-        <button onClick={addHandler}>ویرایش</button>
+      {editedData ? (
+        <button onClick={handleSubmit(addHandler)}>ویرایش</button>
       ) : (
-        <button onClick={addHandler}>افزودن</button>
+        <button onClick={handleSubmit(addHandler)}>افزودن</button>
       )}
       <Link to="/">
         برگشت به صفحه اصلی
@@ -166,8 +122,8 @@ function AddPage({ data }) {
       </Link>
       {showModal && (
         <Modal
-          type={data ? "ویرایش یک مخاطب" : "اضافه کردن یک مخاطب جدید"}
-          action={data ? "ویرایش" : "افزودن"}
+          type={editedData ? "ویرایش یک مخاطب" : "اضافه کردن یک مخاطب جدید"}
+          action={editedData ? "ویرایش" : "افزودن"}
           setShowModal={setShowModal}
           confirmHandler={confirmHandler}
         />

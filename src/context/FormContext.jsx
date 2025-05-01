@@ -1,37 +1,27 @@
 import { createContext, useContext, useEffect, useReducer } from "react";
 
-import generateId from "utils/generateId";
-
 const initialState = {
   users: [],
-  errors: {
-    name: "",
-    email: "",
-    job: "",
-    mobile: "",
-  },
 };
 
 const reducer = (state, action) => {
   switch (action.type) {
     case "ADD_USER": {
-      state.users.push({ ...action.payload, userId: generateId() });
+      state.users.push({ ...action.payload });
       return {
         ...state,
-        errors: initialState.errors,
       };
     }
     case "EDIT_USER": {
       let editingUser = state.users.find(
         (user) => user.userId === action.payload.userId
       );
-      editingUser.name = action.payload.name;
+      editingUser.fullName = action.payload.fullName;
       editingUser.email = action.payload.email;
       editingUser.job = action.payload.job;
       editingUser.mobile = action.payload.mobile;
       return {
         ...state,
-        errors: initialState.errors,
       };
     }
     case "DELETE_ONE_USER": {
@@ -52,14 +42,6 @@ const reducer = (state, action) => {
         users: [...newUsers],
       };
     }
-    case "INPUT_ERROR":
-      return {
-        ...state,
-        errors: {
-          ...state.errors,
-          [action.payload.name]: action.payload.error,
-        },
-      };
     default:
       throw new Error("Invalid Action");
   }
@@ -74,7 +56,6 @@ function FormProvider({ children }) {
   };
 
   const [state, dispatch] = useReducer(reducer, initialState, getInitialState);
-  console.log(state.users);
 
   useEffect(() => {
     localStorage.setItem("form", JSON.stringify(state));
@@ -87,10 +68,10 @@ function FormProvider({ children }) {
   );
 }
 
-const useForm = () => {
+const useUser = () => {
   const { state, dispatch } = useContext(FormContext);
   return [state, dispatch];
 };
 
 export default FormProvider;
-export { useForm };
+export { useUser };

@@ -10,7 +10,8 @@
       "templates/*": ["src/components/templates/*"],
       "constants/*": ["src/constants/*"],
       "context/*": ["src/context/*"],
-      "utils/*": ["src/utils/*"]
+      "utils/*": ["src/utils/*"],
+      "validation/*": ["src/validation/*"]
     }
   }
 }

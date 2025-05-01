@@ -4,14 +4,14 @@ import { toast } from "react-toastify";
 import MainActions from "components/modules/MainActions";
 import UsersList from "components/modules/usersList";
 import Search from "components/modules/Search";
-import { useForm } from "context/FormContext";
+import { useUser } from "context/FormContext";
 import Modal from "components/modules/Modal";
 import searchUsers from "utils/searchUsers";
 
 import styles from "./HomePage.module.css";
 
 function HomePage() {
-  const [state, dispatch] = useForm();
+  const [state, dispatch] = useUser();
 
   const [checkBox, setCheckBox] = useState(false);
   const [displayed, setDisplayed] = useState([]);

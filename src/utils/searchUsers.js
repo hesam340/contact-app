@@ -3,8 +3,8 @@ const searchUsers = (search, users) => {
   const trimmedSearch = search.toLowerCase().trim();
   return users.filter(
     (user) =>
-      user.name.toLowerCase().includes(trimmedSearch) ||
-      user.email.toLowerCase().includes(trimmedSearch)
+      user.fullName.includes(trimmedSearch) ||
+      user.email.includes(trimmedSearch)
   );
 };
 

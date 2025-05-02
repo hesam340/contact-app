@@ -1,0 +1,49 @@
+# contact-app :
+
+this project is a practical application for management the contact's information that is coded by **_react_**
+
+## abilities :
+
+- ability to **add new contact**
+- ability to **edit an existing contact**
+- ability to **validate contact's information** while adding or editing contact by **yup** library and management of forms by **react hook form**
+- ability to **watch details** of each contact via click on name or email of contact in homepage
+- ability to **delete one contact** or **group delete**
+- ability to **search** contact based on email or name of contacts
+- **two seperate branches** based on type of storing and recieving data:
+
+1. **_branch of develop_** : store and recieve data from database that is created by **json-server** package
+2. **_branch of localStorage_** : store and recieve data from **localstorage** in users browsers
+
+## built with :
+-[react](https://react.dev/)
+-[react-hook-form](https://react-hook-form.com/)
+-[yup](https://github.com/jquense/yup)
+-[json-server](https://github.com/typicode/json-server)
+-[local-storage]
+
+## install and run :
+```bash
+git clone https://github.com/hesam340/contact-app.git
+cd contact-app
+```
+**json-server**:
+```bash
+git switch develop
+npm install
+npm run serve-json #run on port 3000
+npm run dev
+```
+
+**localStorage**:
+```bash
+git switch feature/localStorage
+npm install
+npm run dev
+```
+
+## screenShot :
+[contact-app-demo](./public/Screenshot%20(2).png)
+
+## createdBy :
+**hesam khaki by ❤️**

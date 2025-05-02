@@ -9,7 +9,7 @@ function EditPage() {
 
   const user = users.find((user) => user.id === id);
 
-  return <AddPage data={user} />;
+  return <AddPage editedData={user} />;
 }
 
 export default EditPage;

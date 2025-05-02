@@ -8,5 +8,6 @@ export const paths = [
   "configs",
   "constants",
   "context",
-  "utils"
+  "utils",
+  "validation",
 ];

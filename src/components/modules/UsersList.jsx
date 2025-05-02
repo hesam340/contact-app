@@ -11,7 +11,7 @@ import Modal from "./Modal";
 import styles from "./UsersList.module.css";
 
 function UsersList({ data, checkBox, setDeleted }) {
-  const { name, email, id } = data;
+  const { fullName, email, id } = data;
   const [showModal, setShowModal] = useState(false);
   const [checked, setChecked] = useState(false);
   const { setReload } = useUser();
@@ -55,7 +55,7 @@ function UsersList({ data, checkBox, setDeleted }) {
         />
       )}
       <p className={styles.title}>
-        <Link to={`/details/${id}`}>{name}</Link>
+        <Link to={`/details/${id}`}>{fullName}</Link>
       </p>
       <span>
         <Link to={`/details/${id}`}>{email}</Link>

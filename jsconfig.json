@@ -11,7 +11,8 @@
       "constants/*": ["src/constants/*"],
       "configs/*": ["src/configs/*"],
       "context/*": ["src/context/*"],
-      "utils/*": ["src/utils/*"]
+      "utils/*": ["src/utils/*"],
+      "validation/*": ["src/validation/*"]
     }
   }
 }

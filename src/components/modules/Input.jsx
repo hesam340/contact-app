@@ -4,12 +4,10 @@ function Input({
   title,
   name,
   placeholder,
-  value,
-  changeHandler,
   children,
   direction,
-  error,
-  errorText,
+  register,
+  errors,
 }) {
   return (
     <div className={styles.container}>
@@ -23,13 +21,12 @@ function Input({
           placeholder={placeholder}
           name={name}
           id={name}
-          value={value}
-          onChange={changeHandler}
+          {...register(name)}
           className={`${direction ? styles.ltr : ""} ${
-            error ? styles.error : ""
+            errors[name] ? styles.error : ""
           }`}
         />
-        <span>{errorText}</span>
+        <span>{errors[name]?.message}</span>
       </div>
     </div>
   );

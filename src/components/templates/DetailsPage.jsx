@@ -1,8 +1,10 @@
 import { MdOutlineMobileFriendly } from "react-icons/md";
 import { MdOutlineMarkEmailRead } from "react-icons/md";
 import { LuBriefcaseBusiness } from "react-icons/lu";
-import { Link, useParams } from "react-router-dom";
 import { IoMdArrowRoundBack } from "react-icons/io";
+import { Link, useParams } from "react-router-dom";
+import { IoCreateOutline } from "react-icons/io5";
+
 import { FiUser } from "react-icons/fi";
 
 import { useUser } from "context/UserContext";
@@ -23,7 +25,7 @@ function DetailsPage() {
             <FiUser />
             نام و نام خانوادگی :
           </p>
-          <span>{detail?.name}</span>
+          <span>{detail?.fullName}</span>
         </div>
         <div>
           <p>
@@ -45,6 +47,13 @@ function DetailsPage() {
             شماره همراه :
           </p>
           <span>{detail?.mobile}</span>
+        </div>
+        <div>
+          <p>
+            <IoCreateOutline />
+            تاریخ ثبت :
+          </p>
+          <span>{new Date(detail?.createdOn).toLocaleDateString("fa-IR")}</span>
         </div>
       </div>
       <Link to="/">

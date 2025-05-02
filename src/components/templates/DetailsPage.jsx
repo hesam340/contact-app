@@ -3,6 +3,8 @@ import { MdOutlineMarkEmailRead } from "react-icons/md";
 import { LuBriefcaseBusiness } from "react-icons/lu";
 import { IoMdArrowRoundBack } from "react-icons/io";
 import { Link, useParams } from "react-router-dom";
+import { IoCreateOutline } from "react-icons/io5";
+
 import { FiUser } from "react-icons/fi";
 
 import { useUser } from "context/FormContext";
@@ -45,6 +47,13 @@ function DetailsPage() {
             شماره همراه :
           </p>
           <span>{detail?.mobile}</span>
+        </div>
+        <div>
+          <p>
+            <IoCreateOutline />
+            تاریخ ثبت :
+          </p>
+          <span>{new Date(detail?.createdOn).toLocaleDateString("fa-IR")}</span>
         </div>
       </div>
       <Link to="/">

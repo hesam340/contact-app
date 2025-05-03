@@ -55,3 +55,28 @@
   background-color: #fff;
   color: red;
 }
+
+@media (max-width: 768px) {
+  .info {
+    width: 90%;
+  }
+}
+
+@media (max-width: 450px) {
+  .info div {
+    flex-direction: column;
+  }
+
+  .info div p {
+    font-size: 1.1rem;
+  }
+
+  .info div span {
+    font-weight: 400;
+  }
+
+  .container a {
+    width: 80%;
+    font-size: 1.1rem;
+  }
+}

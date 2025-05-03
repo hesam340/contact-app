@@ -61,3 +61,26 @@
   background-color: #fff;
   color: red;
 }
+
+@media (max-width: 768px) {
+  .container .modal {
+    width: 80%;
+  }
+}
+
+@media (max-width: 450px) {
+  .modal p {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+  }
+
+  .modal .buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .modal .buttons button {
+    width: 80%;
+    margin-bottom: 10px;
+  }
+}

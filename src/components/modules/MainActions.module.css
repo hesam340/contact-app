@@ -12,6 +12,7 @@
 .mainButtons a {
   display: flex;
   align-items: center;
+  justify-content: center;
   font-size: 1.1rem;
   background-color: #304ffe;
   padding: 5px;
@@ -72,4 +73,18 @@
 .mainButtons .cancel:hover {
   background-color: #fff;
   color: #ecd13c;
+}
+
+@media (max-width: 450px) {
+  .mainButtons {
+    width: 90%;
+    flex-direction: column;
+  }
+
+  .mainButtons button,
+  .mainButtons .groupDelete,
+  .mainButtons a {
+    margin-top: 15px;
+    width: 85%;
+  }
 }

@@ -60,3 +60,23 @@
   background-color: #fff;
   color: red;
 }
+
+@media (max-width: 768px) {
+  .container {
+    width: 90%;
+  }
+}
+
+@media (max-width: 450px) {
+  .container h1 {
+    font-size: 1.4rem;
+  }
+
+  .container button {
+    font-size: 1.1rem;
+  }
+
+  .container a {
+    font-size: 1.1rem;
+  }
+}

@@ -26,3 +26,26 @@
 .search input:focus {
   outline: none;
 }
+
+@media (max-width: 768px) {
+  .search {
+    width: 400px;
+    justify-content: space-around;
+    margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 450px) {
+  .search {
+    width: 90%;
+    flex-direction: column;
+  }
+
+  .search label {
+    display: none;
+  }
+
+  .search input {
+    width: 95%;
+  }
+}

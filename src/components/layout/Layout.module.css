@@ -25,3 +25,9 @@
   font-size: 1.2rem;
   font-weight: 600;
 }
+
+@media (max-width: 354px) {
+  .header p {
+    font-size: 0.9rem;
+  }
+}
